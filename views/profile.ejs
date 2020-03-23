@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>Homework & Notes Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="">
+    <h1><span class="fa fa-anchor"></span> Class is in Session!</h1>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+
+  <div id="hero">
+    <div id="chalkboard">
+      <h2>Chalkboard</h3>
+      <div class="homework">
+        <p><span><strong>Note: </strong></span>Hi Students! Make sure to ask questions if you need help. Good luck!</p>
+        <p><span><strong>Topic: </strong></span>Latin Translation</p>
+        <p><span><strong>Homework: </strong></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p><span><strong>Due Date: </strong></span>February 29, 2024</p>
+      </div>
+    </div>
+
+    <div class="messageContainer">
+      <h3>Add a message</h2>
+      <% if (user.local.email) { %>
+        <form action="/messages" method="POST">
+          <input type="text" placeholder="title" name="title">
+          <input type="text" placeholder="message" name="msg">
+          <button type="submit">Submit</button>
+        </form>
+      <% } %>
+
+      <div class="notes">
+        <h3>Notebook</h3>
+          <ul class="messages">
+            <% for(var i=0; i< messages.length; i++) {%>
+              <% if (user.local.email == messages[i].name) { %>
+                <li class="message">
+                  <span contenteditable="true"><strong><%= messages[i].title%></strong></span>
+                  <p contenteditable="true"><%= messages[i].msg %></p>
+                  <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                </li>
+              <% } %>
+            <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

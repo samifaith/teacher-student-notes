@@ -1,0 +1,29 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  display: flex;
+  flex-flow: column;
+}
+img{
+  height: 200px;
+}
+
+div #hero {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid red;
+  width: 50vh;
+  margin: 0;
+  text-align: center;
+  left: 50%;
+}
+
+#chalkboard {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  display: inline-block;
+}
